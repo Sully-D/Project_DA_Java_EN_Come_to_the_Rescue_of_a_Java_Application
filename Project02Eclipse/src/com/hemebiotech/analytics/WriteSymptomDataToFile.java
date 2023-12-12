@@ -15,7 +15,7 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
     private String filepath = "result.out";
 
     @Override
-    public void writeSymptoms(Map<String, Integer> symptoms) {
+    public void WriteSymptoms(Map<String, Integer> symptoms) {
         if (filepath != null) {
             try {
                 FileWriter fileWriter = new FileWriter(filepath, false);
