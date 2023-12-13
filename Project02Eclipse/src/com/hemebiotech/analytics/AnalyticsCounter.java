@@ -35,7 +35,7 @@ public class AnalyticsCounter {
 			else if (symptom.equals("rush")) {
 				rashCount++;
 			}
-			else if (symptom.equals("pupils")) {
+			else if (symptom.contains("pupils")) {
 				pupilCount++;
 			}
 		}
