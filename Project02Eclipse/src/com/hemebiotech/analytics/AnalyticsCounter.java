@@ -39,8 +39,8 @@ public class AnalyticsCounter {
 				pupilCount++;
 			}
 		}
-		tmp.put("headache", headacheCount);
-		tmp.put("rush", rashCount);
+		tmp.put("Headache", headacheCount);
+		tmp.put("Rush", rashCount);
 		tmp.put("Pupils", pupilCount);
 		return tmp;
 	}
