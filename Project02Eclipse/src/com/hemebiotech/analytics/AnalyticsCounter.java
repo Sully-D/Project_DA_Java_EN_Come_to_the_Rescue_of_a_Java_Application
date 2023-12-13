@@ -1,33 +1,32 @@
 package com.hemebiotech.analytics;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
 public class AnalyticsCounter {
+
 	private static int headacheCount = 0;
 	private static int rashCount = 0;
 	private static int pupilCount = 0;
-	private ISymptomReader reader = new ReadSymptomDataFromFile("symptoms.txt");
-	private ISymptomWriter writer = new WriteSymptomDataToFile();
+	private ISymptomReader reader;
+	private ISymptomWriter writer;
 
 	
 
 	public AnalyticsCounter (ISymptomReader reader, ISymptomWriter writer) {
-
 		this.reader = reader;
 		this.writer = writer;
 	}
 
+
 	public List<String> getSymptoms () {
-		return reader.GetSymptoms();
+		return reader.getSymptoms();
 	}
 	
-	public Map countSymptoms(List symptoms) {
+
+	public Map<String, Integer> countSymptoms(List<String> symptoms) {
 		HashMap<String, Integer> tmp = new HashMap<>();
 		for (int i = 0; i < symptoms.size(); i++) {
 			if (symptoms.get(i) == "headache") {
@@ -46,7 +45,8 @@ public class AnalyticsCounter {
 		return tmp;
 	}
 
-	public Map sortSymptoms(Map symptoms) {
+
+	public Map<String, Integer> sortSymptoms(Map<String, Integer> symptoms) {
 		try {
 			TreeMap<String, Integer> tmp = new TreeMap<String, Integer>(symptoms);
 			return tmp;
@@ -57,10 +57,14 @@ public class AnalyticsCounter {
 		return symptoms;
 	}
 
-	public void writeSymptoms(Map symptoms) { 
+
+	public void writeSymptoms(Map<String, Integer> symptoms) { 
 		writer.WriteSymptoms(symptoms);
 	}
 
+}
+
+	/*
 	public static void main(String args[]) throws Exception {
 		// first get input
 		BufferedReader reader = new BufferedReader (new FileReader("symptoms.txt"));
@@ -93,3 +97,4 @@ public class AnalyticsCounter {
 		writer.close();
 	}
 }
+*/
