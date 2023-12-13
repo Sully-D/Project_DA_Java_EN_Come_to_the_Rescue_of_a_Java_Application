@@ -21,15 +21,13 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
                 FileWriter fileWriter = new FileWriter(filepath, false);
                 BufferedWriter writer = new BufferedWriter(fileWriter);
 
-                symptoms.forEach((key, value) -> {
-                    try {
-                        writer.write(key + ": " + value);
-                        writer.newLine();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                        System.out.println("Error : Problem while writing in result.out");
-                    }
-                });
+                for (Map.Entry<String, Integer> entry : symptoms.entrySet()) {
+                    String key = entry.getKey();
+                    Integer value = entry.getValue();
+
+                    writer.write(key + ": "  + value);
+                    writer.newLine();
+                }
 
                 writer.close();
 

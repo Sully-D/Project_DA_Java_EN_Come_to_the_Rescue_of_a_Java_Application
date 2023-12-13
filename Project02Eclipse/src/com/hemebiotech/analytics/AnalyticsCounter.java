@@ -27,15 +27,15 @@ public class AnalyticsCounter {
 	
 
 	public Map<String, Integer> countSymptoms(List<String> symptoms) {
-		HashMap<String, Integer> tmp = new HashMap<>();
-		for (int i = 0; i < symptoms.size(); i++) {
-			if (symptoms.get(i) == "headache") {
+		Map<String, Integer> tmp = new HashMap<>();
+		for (String symptom : symptoms) {
+			if (symptom.equals("headache")) {
 				headacheCount++;
 			}
-			else if (symptoms.get(i) == "rush") {
+			else if (symptom.equals("rush")) {
 				rashCount++;
 			}
-			else if (symptoms.get(i) == "pupils") {
+			else if (symptom.equals("pupils")) {
 				pupilCount++;
 			}
 		}
