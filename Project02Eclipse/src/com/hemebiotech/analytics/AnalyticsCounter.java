@@ -16,9 +16,6 @@ import java.util.TreeMap;
  */
 public class AnalyticsCounter {
 
-	private static int headacheCount = 0;
-	private static int rashCount = 0;
-	private static int pupilCount = 0;
 	private ISymptomReader reader;
 	private ISymptomWriter writer;
 
@@ -46,19 +43,14 @@ public class AnalyticsCounter {
 	public Map<String, Integer> countSymptoms(List<String> symptoms) {
 		Map<String, Integer> tmp = new HashMap<>();
 		for (String symptom : symptoms) {
-			if (symptom.equals("headache")) {
-				headacheCount++;
+			if (tmp.containsKey(symptom)) {
+				int count = tmp.get(symptom) +1;
+				tmp.put(symptom, count);
 			}
-			else if (symptom.equals("rush")) {
-				rashCount++;
-			}
-			else if (symptom.contains("pupils")) {
-				pupilCount++;
+			else {
+				tmp.put(symptom, 1);
 			}
 		}
-		tmp.put("Headache", headacheCount);
-		tmp.put("Rush", rashCount);
-		tmp.put("Pupils", pupilCount);
 		return tmp;
 	}
 
